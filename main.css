@@ -1,0 +1,9 @@
+/*Import staments for external css*/
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans:600'); */
+
+/*Page related CSS*/
+
+.navbar {
+    width: 100%;
+    background-color: purple;
+}

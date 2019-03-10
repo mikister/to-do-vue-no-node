@@ -1,1 +1,1 @@
-# to-do-vue-no-node
+# A Vue To-Do app w/o Node
