@@ -1,8 +1,12 @@
 import Vue from './vue.js'
 
 import {
-    Navbar
-} from './components/navbar.js'
+    NavPane
+} from './components/nav-pane.js'
+
+import {
+    MainView
+} from './components/main-view.js'
 
 import {
     MainTemplate
@@ -11,7 +15,8 @@ import {
 new Vue({
     el: '#app',
     components: {
-      'navbar': Navbar
+        'nav-pane': NavPane,
+        'main-view': MainView
     },
     template: MainTemplate
 })

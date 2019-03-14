@@ -1,10 +1,9 @@
 // Note that these are backticks.
 
 const MainTemplate = `
-    <div>
-    <navbar></navbar>
-    All content will appear below the horizontal line.
-    <hr>
+    <div id="app">
+    <nav-pane></nav-pane>
+    <main-view></main-view>
     </div>
 `
 
