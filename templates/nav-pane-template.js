@@ -3,7 +3,7 @@ const NavPaneTemplate = `
 
     <div class="flex-strip flex-strip--row">
         <input class="search">
-        <i class="fas fa-chevron-left"></i>
+        <i class="action-btn fas fa-chevron-left"></i>
     </div>
 
     <div id="task-lists">
@@ -15,7 +15,7 @@ const NavPaneTemplate = `
         ></list-item>
     </div>
 
-    <i class="fas fa-cog"></i>
+    <i class="action-btn fas fa-cog"></i>
 
 </nav>`
 
