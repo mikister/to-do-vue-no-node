@@ -22,7 +22,7 @@ const NavPaneTemplate = `
         ></list-item>
     </div>
 
-    <i class="action-btn fas fa-cog"></i>
+    <i class="action-btn fas fa-cog" @click="openSettings"></i>
 
 </nav>`
 

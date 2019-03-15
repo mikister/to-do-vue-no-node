@@ -25,6 +25,11 @@ const NavPane = {
             ]
         }
     },
+    methods: {
+        openSettings (event) {
+            this.$emit('open-settings');
+        }
+    },
     template: NavPaneTemplate,
 }
 
