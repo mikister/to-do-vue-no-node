@@ -2,8 +2,12 @@
 
 const MainTemplate = `
 <div id="app">
-    <nav-pane @open-settings="onOpenSettings"></nav-pane>
-    <main-view></main-view>
+    <nav-pane 
+        ref="navPane" 
+        @open-settings="onOpenSettings"
+        @change-list="displayTasks"
+    ></nav-pane>
+    <main-view ref="mainView"></main-view>
     <settings-pane ref="settingsPane"></settings-pane>
 </div>
 `

@@ -9,23 +9,16 @@ const NavPane = {
     data: function () {
         return {
             isCollapsed: false,
-            lists: [
-                {
-                    name: "List 1",
-                    colorCode: "#ff0022"
-                },
-                {
-                    name: "List 2",
-                    colorCode: "#00ff22"
-                },
-                {
-                    name: "List 3",
-                    colorCode: "#000000"
-                }
-            ]
+            lists: []
         }
     },
     methods: {
+        displayLists (newLists) {
+            this.lists = newLists;
+        },
+        changeList (value) {
+            this.$emit('change-list', value);
+        },
         openSettings (event) {
             this.$emit('open-settings');
         }

@@ -19,6 +19,8 @@ const NavPaneTemplate = `
             :key="index"
             :name="listItem.name"
             :colorCode="listItem.colorCode"
+            :index="index"
+            @change-list="changeList"
         ></list-item>
     </div>
 
