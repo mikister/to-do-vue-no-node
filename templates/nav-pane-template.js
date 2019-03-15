@@ -1,9 +1,16 @@
 const NavPaneTemplate = `
-<nav id="nav-pane">
+<nav id="nav-pane" :class="{ 'nav-pane--collapsed': isCollapsed }">
 
     <div class="flex-strip flex-strip--row">
         <input class="search">
-        <i class="action-btn fas fa-chevron-left"></i>
+        <i 
+            :class="{
+                'action-btn fas': true,
+                'fa-chevron-left': !isCollapsed,
+                'fa-chevron-right': isCollapsed
+            }"
+            v-on:click="isCollapsed = !isCollapsed"
+        ></i>
     </div>
 
     <div id="task-lists">

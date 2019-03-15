@@ -8,6 +8,7 @@ const NavPane = {
     },
     data: function () {
         return {
+            isCollapsed: false,
             lists: [
                 {
                     name: "List 1",
