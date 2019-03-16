@@ -41,6 +41,7 @@
     width: 300px;
     padding: 20px; 
     background-color: var(--color-primary);
+    overflow-y: hidden;
 
     transition: width 1s;
 }
@@ -60,8 +61,9 @@
     }
 
     .nav-pane--collapsed .search {
-        /* display: none !important; */
-        animation: shrink-disappear 1s forwards;
+        width: 0;
+        visibility: hidden;
+        margin-right: -22px;
     }
 
 
@@ -69,6 +71,7 @@
     flex-grow: 1 !important;
     flex-shrink: 0 !important;
 
+    width: 80%;
     margin-right: 10px;
     padding: 8px 10px;
     
@@ -76,6 +79,8 @@
     border: 1px solid gray;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
+
+    transition: width 1s;
 }
 
     .search:hover {
@@ -91,7 +96,6 @@
     flex-direction: column;
 
     margin-top: 15px;
-    transition: visibility 0.5s;
 }
 
     .task-lists__item {
@@ -254,20 +258,3 @@
     .action-btn:hover {
         color: var(--color-accent);
     }
-
-
-@keyframes shrink-disappear {
-    from {
-        width: 100%;
-        visibility: hidden;
-        margin-right: -22px;
-    }
-    99% {
-        width: 0;
-    }
-    to {
-        width: 0;
-        visibility: hidden;
-        margin-right: -22px;
-    }
-}
