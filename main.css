@@ -10,6 +10,17 @@
 
 
 #app {
+    --color-primary: #B3FFB3;
+    --color-accent: #cc2828;
+    --color-background: #F5F5F5;
+    --color-font: #000000;
+    --color-inactive: #AAAAAA;
+
+    --color-task-importance-1: #ad343e;
+    --color-task-importance-2: #f2af29;
+    --color-task-importance-3: #56a3a6;
+    --color-task-importance-4: #AAAAAA;
+
     display: flex;
     flex-direction: row;
 
@@ -17,6 +28,7 @@
     min-height: 100vh;
 
     font-size: 20px;
+    background-color: var(--color-background);
 }
 
 #nav-pane {
@@ -28,7 +40,7 @@
 
     width: 300px;
     padding: 20px; 
-    background-color: yellowgreen;
+    background-color: var(--color-primary);
 
     transition: width 1s;
 }
@@ -67,7 +79,7 @@
 }
 
     .search:hover {
-        border-color: red;
+        border-color: var(--color-accent);
     }
 
 #task-lists {
@@ -113,8 +125,6 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-
-    background-color: whitesmoke;
 }
 
     #main-view__title {
@@ -131,18 +141,22 @@
     }
 
 .task {
-    --color-text: black;
-    --color-checkbox: gray;
+    --color-text: var(--color-font);
+    --color-checkbox: var(--color-task-importance-4);
 
     display: flex;
     flex-direction: row;
 
     width: 100%;
     padding: 10px 25px;
-    margin: 2px 0;
+    /* margin: 2px 0; */
 
-    background-color: limegreen;
+    border-bottom: 1px solid #DFDFDF;
 }
+
+    .task:hover {
+        background-color: #F0F0F0;
+    }
 
     .task > * {
         flex-grow: 0;
@@ -160,25 +174,25 @@
     }
 
     .task--completed {
-        --color-text: gray !important;
-        --color-checkbox: gray !important;
+        --color-text: var(--color-inactive) !important;
+        /* --color-checkbox: var(--color-inactive) !important; */
         text-decoration: line-through;
     }
 
     .task--importance-1 {
-        --color-checkbox: red;
+        --color-checkbox: var(--color-task-importance-1);
     }
 
     .task--importance-2 {
-        --color-checkbox: yellow;
+        --color-checkbox: var(--color-task-importance-2);
     }
 
     .task--importance-3 {
-        --color-checkbox: blue;
+        --color-checkbox: var(--color-task-importance-3);
     }
 
     .task--importance-4 {
-        --color-checkbox: gray;
+        --color-checkbox: var(--color-task-importance-4);
     }
 
 
@@ -206,7 +220,7 @@
 
     .settings-pane__inner {
         flex-grow: 1;
-        background-color: aliceblue;
+        background-color: var(--color-background);
     }
 
 
@@ -238,7 +252,7 @@
 }
 
     .action-btn:hover {
-        color: white;
+        color: var(--color-accent);
     }
 
 

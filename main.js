@@ -29,7 +29,7 @@ new Vue({
             lists: [
                 {
                     name: "List 1",
-                    colorCode: "#ff0022",
+                    colorCode: "#CE391A",
                     tasks: [
                         {
                             name: "Task 1",
@@ -65,7 +65,7 @@ new Vue({
                 },
                 {
                     name: "List 2",
-                    colorCode: "#00ff22",
+                    colorCode: "#78CC81",
                     tasks: [
                         {
                             name: "Task 1",
@@ -83,7 +83,7 @@ new Vue({
                 },
                 {
                     name: "List 3",
-                    colorCode: "#000000",
+                    colorCode: "#421C4B",
                     tasks: [
                         {
                             name: "Other 1",
