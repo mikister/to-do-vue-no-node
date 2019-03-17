@@ -7,7 +7,7 @@ const MainTemplate = `
         @open-settings="onOpenSettings"
         @change-list="displayTasks"
     ></nav-pane>
-    <main-view ref="mainView"></main-view>
+    <main-view ref="mainView" @title-change="onTitleChange"></main-view>
     <settings-pane ref="settingsPane"></settings-pane>
 </div>
 `

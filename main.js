@@ -113,10 +113,14 @@ new Vue({
         saveListsData () {},
         displayTasks (listIndex) {
             this.currentListIndex = listIndex;
-            this.$refs.mainView.displayTasks( this.lists[listIndex].tasks );
+            this.$refs.mainView.displayTasks( this.lists[listIndex] );
         },
         displayLists () {
             this.$refs.navPane.displayLists(this.lists);
+        },
+        onTitleChange (value) {
+            this.lists[this.currentListIndex].name = value;
+            this.displayLists();
         },
         onOpenSettings () {
             this.$refs.settingsPane.openSettings();

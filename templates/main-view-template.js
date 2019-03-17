@@ -1,7 +1,12 @@
 const MainViewTemplate = `
 <main id="main-view">
 
-    <h1 id="main-view__title">List One</h1>
+    <!-- <h1 id="main-view__title"></h1> -->
+    <editable-title 
+        ref="title" 
+        id="main-view__title"
+        @title-change="onTitleChange"
+    ></editable-title>
 
     <div id="main-view__tasks-container">
         <task 

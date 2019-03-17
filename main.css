@@ -136,8 +136,20 @@
     #main-view__title {
         margin: 1em 0;
         font-size: 30px;
+        font-style: normal;
         text-align: center;
+        border-bottom: 3px solid transparent;
+        transition: border 1s;
     }
+    
+        #main-view__title .input {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .main-view__title--extra-margin {
+            margin: calc(1em + 9px) 0 !important;
+        }
     
     #main-view__tasks-container {
         flex-grow: 1;
