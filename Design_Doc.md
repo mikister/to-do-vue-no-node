@@ -73,6 +73,7 @@ Tasks have the following structure:
   - List Item
 - Main-view
   - Task
+  - Editable Title
   - Date Picker
 - Settings Panel
 
