@@ -179,6 +179,7 @@
     .task > * {
         flex-grow: 0;
         flex-shrink: 1;
+        color: var(--color-text);
     }
 
     .task__checkbox {
@@ -193,8 +194,8 @@
 
     .task--completed {
         --color-text: var(--color-inactive) !important;
-        /* --color-checkbox: var(--color-inactive) !important; */
         text-decoration: line-through;
+        text-decoration-color: var(--color-text);
     }
 
     .task--importance-1 {
