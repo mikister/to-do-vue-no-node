@@ -41,7 +41,7 @@
     width: 300px;
     padding: 20px; 
     background-color: var(--color-primary);
-    overflow-y: hidden;
+    overflow-x: hidden;
 
     transition: width 1s;
 }
