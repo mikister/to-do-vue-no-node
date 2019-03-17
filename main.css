@@ -60,30 +60,32 @@
         visibility: hidden !important;
     }
 
-    .nav-pane--collapsed .search {
+    .nav-pane--collapsed #search {
         width: 0;
         visibility: hidden;
         margin-right: -22px;
     }
 
 
-.search {
-    flex-grow: 1 !important;
-    flex-shrink: 0 !important;
-
+#search {
     width: 80%;
     margin-right: 10px;
-    padding: 8px 10px;
-    
-    font-size: 14px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
-
     transition: width 1s;
 }
 
-    .search:hover {
+.input {
+    flex-grow: 1 !important;
+    flex-shrink: 0 !important;
+
+    padding: 8px 10px;
+    
+    font-size: 14px;
+    border: 1px solid var(--color-inactive);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+    .input:hover {
         border-color: var(--color-accent);
     }
 

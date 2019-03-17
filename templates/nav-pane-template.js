@@ -2,7 +2,7 @@ const NavPaneTemplate = `
 <nav id="nav-pane" :class="{ 'nav-pane--collapsed': isCollapsed }">
 
     <div class="flex-strip flex-strip--row">
-        <input class="search">
+        <input id="search" class="input">
         <i 
             :class="{
                 'action-btn fas': true,
