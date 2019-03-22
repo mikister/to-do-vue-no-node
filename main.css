@@ -1,11 +1,22 @@
-/*Import staments for external css*/
+/*
+ *    Import staments for external css
+ */
+
 /* @import url('https://fonts.googleapis.com/css?family=Open+Sans:600'); */
 
-/*Page related CSS*/
+/*
+ *    Page related CSS
+ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+
+body {
+    overflow-y: hidden;
 }
 
 
@@ -21,8 +32,9 @@
     --color-task-importance-3: #56a3a6;
     --color-task-importance-4: #AAAAAA;
 
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: max(300px, 23%) auto;
+    grid-template-rows: minmax(60px, min-content) auto minmax(60px, min-content);
 
     min-width: 100%;
     min-height: 100vh;
@@ -31,245 +43,103 @@
     background-color: var(--color-background);
 }
 
-#nav-pane {
-    flex-grow: 0;
-    flex-shrink: 1;
+
+#main_view {
+    grid-area: 2 / 1 / span 2 / span 2;
 
     display: flex;
     flex-direction: column;
+    /* align-items: stretch; */
+    justify-content: center;
 
-    width: 300px;
-    padding: 20px; 
+    overflow-y: scroll;
+}
+
+    #main_view__title {}
+
+    #main_view__task_container {
+        width: 95%;
+        max-width: 1000px;
+    }
+
+.main_overlay {
+    grid-area: 1 / 1 / span 3 / span 2;
+}
+
+    .main_overlay--hidden {
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+#menu_overlay {
+
+}
+
+#settings_overlay {
+
+}
+
+
+#nav_panel {
+    grid-area: 1 / 1 / span 1 / span 2;
+
+    padding: 20px;
     background-color: var(--color-primary);
     overflow-x: hidden;
 
     transition: width 1s;
 }
 
-    #nav-pane > * {
-        flex-grow: 0;
-        flex-shrink: 1;
-        align-self: flex-end;
+    .nav_panel--collapsed #list_lists {
+        display: none;
     }
 
-    .nav-pane--collapsed {
-        width: 80px !important;
-    }
+.nav_overlay {
+    grid-area: 1 / 1 / span 1 / span 2;
+    z-index: 100;
+}
 
-    .nav-pane--collapsed #task-lists {
-        visibility: hidden !important;
-    }
-
-    .nav-pane--collapsed #search {
-        width: 0;
+    .nav_overlay--hidden {
         visibility: hidden;
-        margin-right: -22px;
+        pointer-events: none;
     }
 
+#search_overlay {
 
-#search {
-    width: 80%;
-    margin-right: 10px;
-    transition: width 1s;
 }
 
-.input {
-    flex-grow: 1 !important;
-    flex-shrink: 0 !important;
+#task_select_overlay {
 
-    padding: 8px 10px;
-    
-    font-size: 14px;
-    border: 1px solid var(--color-inactive);
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
 }
 
-    .input:hover {
-        border-color: var(--color-accent);
-    }
 
-#task-lists {
-    flex-grow: 1;
-    flex-shrink: 0;
-    align-self: stretch;
-
-    display: flex;
-    flex-direction: column;
-
-    margin-top: 15px;
+#list_lists {
+    
 }
 
-    .task-lists__item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    
-        width: 84%;
-        padding: 10px 10px;
-        margin: 2px 0;
-    }
+#list_tasks {
 
-        .task-lists__item:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 5px;
-        }
-
-        .task-lists__item__color-circle {
-            --circle-size: 0.6em;
-            width:  var(--circle-size);
-            height: var(--circle-size);
-            border-radius: 50%;
-
-            margin-right: 10px;
-        }
-
-#main-view {
-    flex-grow: 1;
-    flex-shrink: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
 }
 
-    #main-view__title {
-        margin: 1em 0;
-        font-size: 30px;
-        font-style: normal;
-        text-align: center;
-        border-bottom: 3px solid transparent;
-        transition: border 1s;
-    }
-    
-        #main-view__title .input {
-            font-size: 30px;
-            text-align: center;
-        }
 
-        .main-view__title--extra-margin {
-            margin: calc(1em + 9px) 0 !important;
-        }
-    
-    #main-view__tasks-container {
-        flex-grow: 1;
-        flex-shrink: 0;
+.icon_button {
 
-        margin: 1em 10%;
-    }
+}
+
 
 .task {
-    --color-text: var(--color-font);
-    --color-checkbox: var(--color-task-importance-4);
 
-    display: flex;
-    flex-direction: row;
-
-    width: 100%;
-    padding: 10px 25px;
-    /* margin: 2px 0; */
-
-    border-bottom: 1px solid #DFDFDF;
 }
 
-    .task:hover {
-        background-color: #F0F0F0;
+
+/*
+ *    Progressive enhancement
+ */
+@media (min-aspect-ratio: 3/2) {
+    #main_view {
+        grid-area: 1 / 2 / span 3 / span 1;
     }
-
-    .task > * {
-        flex-grow: 0;
-        flex-shrink: 1;
-        color: var(--color-text);
+    #nav_panel {
+        grid-area: 1 / 1 / span 3 / span 1;
     }
-
-    .task__checkbox {
-        color: var(--color-checkbox);
-        margin-right: 10px;
-    }
-
-    .task__name {
-        flex-grow: 1;
-        flex-shrink: 0;
-    }
-
-    .task--completed {
-        --color-text: var(--color-inactive) !important;
-        text-decoration: line-through;
-        text-decoration-color: var(--color-text);
-    }
-
-    .task--importance-1 {
-        --color-checkbox: var(--color-task-importance-1);
-    }
-
-    .task--importance-2 {
-        --color-checkbox: var(--color-task-importance-2);
-    }
-
-    .task--importance-3 {
-        --color-checkbox: var(--color-task-importance-3);
-    }
-
-    .task--importance-4 {
-        --color-checkbox: var(--color-task-importance-4);
-    }
-
-
-#settings-pane {
-    display: flex;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-
-    padding: 5% 10%;
-    
-    visibility: hidden;
-    pointer-events: none;
-
-    background-color: rgba(0, 0, 0, 0.5);
 }
-
-    .settings-pane--active {
-        visibility: visible !important;
-        pointer-events: all !important;
-    }
-
-    .settings-pane__inner {
-        flex-grow: 1;
-        background-color: var(--color-background);
-    }
-
-
-.flex-strip {
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-}
-
-    .flex-strip > * {
-        flex-grow: 0;
-        flex-shrink: 1;
-    }
-
-    .flex-strip--row {
-        flex-direction: row;
-    }
-
-    .flex-strip--col {
-        flex-direction: column;
-    }
-
-.action-btn {
-    font-size: 35px;
-    width: 35px;
-    text-align: center;
-    /* margin: 0 10px; */
-}
-
-    .action-btn:hover {
-        color: var(--color-accent);
-    }

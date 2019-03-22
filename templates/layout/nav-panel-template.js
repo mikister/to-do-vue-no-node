@@ -1,5 +1,8 @@
 const NavPanelTemplate = `
-<nav id="nav_panel" :class="{ 'nav_panel--collapsed': isCollapsed }">
+<nav 
+    id="nav_panel"
+    :class="{ 'nav_panel--collapsed': isCollapsed }"
+>
 
     <div id="top-strip" class="flex-strip flex-strip--row">
         <input id="search" class="input">
