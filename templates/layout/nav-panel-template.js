@@ -1,19 +1,19 @@
-const NavPaneTemplate = `
-<nav id="nav-pane" :class="{ 'nav-pane--collapsed': isCollapsed }">
+const NavPanelTemplate = `
+<nav id="nav_panel" :class="{ 'nav_panel--collapsed': isCollapsed }">
 
-    <div class="flex-strip flex-strip--row">
+    <div id="top-strip" class="flex-strip flex-strip--row">
         <input id="search" class="input">
         <i 
             :class="{
                 'action-btn fas': true,
-                'fa-chevron-left': !isCollapsed,
-                'fa-chevron-right': isCollapsed
+                'fa-chevron-up': !isCollapsed,
+                'fa-bars': isCollapsed
             }"
             v-on:click="isCollapsed = !isCollapsed"
         ></i>
     </div>
 
-    <div id="task-lists">
+    <div id="list_lists">
         <list-item
             v-for="(listItem, index) in lists"
             :key="index"
@@ -28,4 +28,4 @@ const NavPaneTemplate = `
 
 </nav>`
 
-export { NavPaneTemplate }
+export { NavPanelTemplate }

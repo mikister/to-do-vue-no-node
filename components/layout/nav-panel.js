@@ -1,14 +1,14 @@
-import { NavPaneTemplate } from '../templates/nav-pane-template.js'
+import { NavPanelTemplate } from '../../templates/layout/nav-panel-template.js'
 
-import { ListItem } from './list-item.js'
+import { ListItem } from '../other/list-item.js'
 
-const NavPane = {
+const NavPanel = {
     components: {
         'list-item': ListItem
     },
     data: function () {
         return {
-            isCollapsed: false,
+            isCollapsed: true,
             lists: []
         }
     },
@@ -23,7 +23,7 @@ const NavPane = {
             this.$emit('open-settings');
         }
     },
-    template: NavPaneTemplate,
+    template: NavPanelTemplate,
 }
 
-export { NavPane }
+export { NavPanel }

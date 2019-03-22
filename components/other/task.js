@@ -1,4 +1,4 @@
-import { TaskTemplate } from '../templates/task-template.js'
+import { TaskTemplate } from '../../templates/other/task-template.js'
 
 const Task = {
     props: {

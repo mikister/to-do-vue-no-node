@@ -1,4 +1,4 @@
-import { ListItemTemplate } from '../templates/list-item-template.js'
+import { ListItemTemplate } from '../../templates/other/list-item-template.js'
 
 const ListItem = {
     props: {

@@ -1,4 +1,4 @@
-import { TitleEditableTemplate } from '../templates/title-editable-template.js'
+import { TitleEditableTemplate } from '../../templates/other/title-editable-template.js'
 
 const TitleEditable = {
     data: function () {

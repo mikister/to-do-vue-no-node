@@ -1,6 +1,6 @@
-import { MainViewTemplate } from '../templates/main-view-template.js'
-import { Task } from './task.js'
-import { TitleEditable } from './title-editable.js'
+import { MainViewTemplate } from '../../templates/layout/main-view-template.js'
+import { Task } from '../other/task.js'
+import { TitleEditable } from '../other/title-editable.js'
 
 const MainView = {
     components: {

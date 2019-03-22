@@ -1,31 +1,36 @@
 import Vue from './vue.js'
 
-import {
-    NavPane
-} from './components/nav-pane.js'
+import { MainTemplate } from './templates/main-template.js'
 
-import {
-    MainView
-} from './components/main-view.js'
 
-import {
-    SettingsPane
-} from './components/settings-pane.js'
+import { MainView } from './components/layout/main-view.js'
+import { SettingsOverlay } from './components/layout/settings-overlay.js'
+import { MenuOverlay } from './components/layout/menu-overlay.js'
 
-import {
-    MainTemplate
-} from './templates/main-template.js'
+import { NavPanel } from './components/layout/nav-panel.js'
+import { SearchOverlay } from './components/layout/search-overlay.js'
+import { TaskSelectOverlay } from './components/layout/task-select-overlay.js'
+
+import { ActionPanel } from './components/layout/action-panel.js'
+
 
 new Vue({
     el: '#app',
     components: {
-        'nav-pane': NavPane,
         'main-view': MainView,
-        'settings-pane': SettingsPane
+        'settings-overlay': SettingsOverlay,
+        'menu-overlay': MenuOverlay,
+        'nav-panel': NavPanel,
+        'search-overlay': SearchOverlay,
+        'task-select-overlay': TaskSelectOverlay,
+        'action-panel': ActionPanel,
     },
     data: function () {
         return {
             currentListIndex: 0,
+            aspectRatio: 1,
+            width: 0,
+            height: 0,
             lists: [
                 {
                     name: "List 1",
@@ -106,6 +111,7 @@ new Vue({
         this.loadListsData();
         this.displayLists();
         this.displayTasks(this.currentListIndex);
+        this.getAppDimensions();
         console.log("beforeMount");
     },
     methods: {
@@ -116,14 +122,22 @@ new Vue({
             this.$refs.mainView.displayTasks( this.lists[listIndex] );
         },
         displayLists () {
-            this.$refs.navPane.displayLists(this.lists);
+            this.$refs.navPanel.displayLists(this.lists);
         },
         onTitleChange (value) {
             this.lists[this.currentListIndex].name = value;
             this.displayLists();
         },
+        getAppDimensions () {
+            this.width = this.$el.offsetWidth;
+            this.height = this.$el.offsetHeight;
+            this.aspectRatio = this.width / this.height;
+            console.log(this.width,
+                this.height,
+                this.aspectRatio);
+        },
         onOpenSettings () {
-            this.$refs.settingsPane.openSettings();
+            this.$refs.settingsOverlay.openSettings();
         }
     },
     template: MainTemplate
