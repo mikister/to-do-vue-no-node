@@ -6,6 +6,20 @@ const ActionPanel = {
             isActive: false
         }
     },
+    methods: {
+        completeSelectedTask () {
+            this.$emit("complete-selected-tasks");
+        },
+        scheduleSelectedTask () {
+            this.$emit("schedule-selected-tasks");
+        },
+        moveSelectedTask () {
+            this.$emit("move-selected-tasks");
+        },
+        changeImportanceOfSelectedTask () {
+            this.$emit("change-importance-selected-tasks");
+        }
+    },
     template: ActionPanelTemplate
 }
 
