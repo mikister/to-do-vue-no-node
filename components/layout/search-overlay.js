@@ -6,6 +6,11 @@ const SearchOverlay = {
             isActive: false
         }
     },
+    methods: {
+        openSearch () {
+            this.isActive = true;
+        }
+    },
     template: SearchOverlayTemplate
 }
 

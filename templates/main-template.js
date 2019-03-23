@@ -5,23 +5,28 @@ const MainTemplate = `
 
     <nav-panel 
         ref="navPanel" 
-        @open-settings="onOpenSettings"
-        @change-list="displayTasks"
+        @open-menu="onOpenMenu"
+        @open-search="onOpenSearch"
     ></nav-panel>
 
-    <search-overlay></search-overlay>
+    <search-overlay ref="searchOverlay"></search-overlay>
 
-    <task-select-overlay></task-select-overlay>
-
-
-    <action-panel></action-panel>
+    <task-select-overlay ref="taskSelectOverlay"></task-select-overlay>
 
 
-    <main-view ref="mainView" @title-change="onTitleChange"></main-view>
+    <action-panel ref="actionPanel" ></action-panel>
+
+
+    <main-view ref="mainView"></main-view>
 
     <settings-overlay ref="settingsOverlay"></settings-overlay>
 
-    <menu-overlay></menu-overlay>
+    <menu-overlay
+        ref="menuOverlay"
+        @open-settings="onOpenSettings"
+        @close-menu="onCloseMenu"
+        @change-list="displayTasks"
+    ></menu-overlay>
 
 </div>
 `

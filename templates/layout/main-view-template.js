@@ -1,12 +1,7 @@
 const MainViewTemplate = `
-<main id="main_view">
+<main id="main_view" :class="{ 'main_view--smaller': isMenuOpen }">
 
-    <!-- <h1 id="main_view__title"></h1> -->
-    <editable-title 
-        ref="title" 
-        id="main_view__title"
-        @title-change="onTitleChange"
-    ></editable-title>
+    <h1 id="main_view__title">{{ currListName }}</h1>
 
     <div id="main_view__tasks-container">
         <task 

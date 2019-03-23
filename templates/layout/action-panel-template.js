@@ -1,6 +1,6 @@
 const ActionPanelTemplate = `
 <div
-    id="action-panel"
+    id="action_panel"
     :class="{ 'nav_overlay--hidden': !isActive }"    
 >
 </div>`

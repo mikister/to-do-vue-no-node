@@ -1,33 +1,19 @@
 const NavPanelTemplate = `
-<nav 
-    id="nav_panel"
-    :class="{ 'nav_panel--collapsed': isCollapsed }"
->
+<nav id="nav_panel">
 
-    <div id="top-strip" class="flex-strip flex-strip--row">
-        <input id="search" class="input">
-        <i 
-            :class="{
-                'action-btn fas': true,
-                'fa-chevron-up': !isCollapsed,
-                'fa-bars': isCollapsed
-            }"
-            v-on:click="isCollapsed = !isCollapsed"
-        ></i>
-    </div>
+    <i 
+        class="action_button fas fa-bars"
+        v-on:click="openMenu"
+    ></i>
 
-    <div id="list_lists">
-        <list-item
-            v-for="(listItem, index) in lists"
-            :key="index"
-            :name="listItem.name"
-            :colorCode="listItem.colorCode"
-            :index="index"
-            @change-list="changeList"
-        ></list-item>
-    </div>
+    <h1 id="nav_panel__title">{{ currListName }}</h1>
 
-    <i class="action-btn fas fa-cog" @click="openSettings"></i>
+    <i
+        class="action_button fas fa-search"
+        v-on:click="openSearch"
+    ></i>
+
+    <!-- <input id="search" class="input"> -->
 
 </nav>`
 

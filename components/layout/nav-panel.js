@@ -8,19 +8,20 @@ const NavPanel = {
     },
     data: function () {
         return {
+            currListName: "",
             isCollapsed: true,
             lists: []
         }
     },
     methods: {
-        displayLists (newLists) {
-            this.lists = newLists;
+        openMenu (event) {
+            this.$emit('open-menu');
         },
-        changeList (value) {
-            this.$emit('change-list', value);
+        openSearch (event) {
+            this.$emit('open-search');
         },
-        openSettings (event) {
-            this.$emit('open-settings');
+        updateTitle (newTitle) {
+            this.currListName = newTitle;
         }
     },
     template: NavPanelTemplate,

@@ -112,6 +112,7 @@ new Vue({
         this.displayLists();
         this.displayTasks(this.currentListIndex);
         this.getAppDimensions();
+        this.$refs.navPanel.updateTitle(this.lists[this.currentListIndex].name);
         console.log("beforeMount");
     },
     methods: {
@@ -122,11 +123,7 @@ new Vue({
             this.$refs.mainView.displayTasks( this.lists[listIndex] );
         },
         displayLists () {
-            this.$refs.navPanel.displayLists(this.lists);
-        },
-        onTitleChange (value) {
-            this.lists[this.currentListIndex].name = value;
-            this.displayLists();
+            this.$refs.menuOverlay.displayLists(this.lists);
         },
         getAppDimensions () {
             this.width = this.$el.offsetWidth;
@@ -138,6 +135,16 @@ new Vue({
         },
         onOpenSettings () {
             this.$refs.settingsOverlay.openSettings();
+        },
+        onOpenMenu () {
+            this.$refs.mainView.setMenuState(true);
+            this.$refs.menuOverlay.openMenu();
+        },
+        onCloseMenu () {
+            this.$refs.mainView.setMenuState(false);
+        },
+        onOpenSearch () {
+            this.$refs.searchOverlay.openSearch();
         }
     },
     template: MainTemplate
