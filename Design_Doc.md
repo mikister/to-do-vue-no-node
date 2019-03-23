@@ -70,10 +70,16 @@ Tasks have the following structure:
 ## Vue components hiearchy
 
 - Nav-pane
-  - List Item
+- Search Overlay
+- Task Select Overlay
+- Action Panel
+  - Date Picker
+  - List Picker
+  - Importance Picker
 - Main-view
   - Task
-  - Editable Title
   - Date Picker
-- Settings Panel
+- Menu Overlay
+  - List Item
+- Settings Overlay
 
