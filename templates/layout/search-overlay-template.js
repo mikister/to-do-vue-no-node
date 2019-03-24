@@ -9,6 +9,8 @@ const SearchOverlayTemplate = `
         @click="isActive=false"
     ></i>
 
+    <input id="search" class="input">
+
 </div>`
 
 export { SearchOverlayTemplate }

@@ -13,8 +13,6 @@ const NavPanelTemplate = `
         v-on:click="openSearch"
     ></i>
 
-    <!-- <input id="search" class="input"> -->
-
 </nav>`
 
 export { NavPanelTemplate }
