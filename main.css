@@ -142,7 +142,7 @@ body {
 }
 
 #action_panel {
-    grid-area: 3 / 1 / -1 / -1;
+    grid-area: -2 / 1 / -1 / -1;
 
     display: flex;
     flex-direction: row;
