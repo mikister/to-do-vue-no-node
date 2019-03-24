@@ -31,6 +31,10 @@ new Vue({
             aspectRatio: 1,
             width: 0,
             height: 0,
+            selectedTasks: {
+                amount: 0,
+                lists: {}
+            },
             lists: [
                 {
                     name: "List 1",
@@ -145,6 +149,49 @@ new Vue({
         },
         onOpenSearch () {
             this.$refs.searchOverlay.openSearch();
+        },
+        onOpenTaskSelect () {
+            this.$refs.taskSelectOverlay.openTaskSelect(this.selectedTasks.amount);
+        },
+        onCloseTaskSelect () {
+            this.unselectAllTasks();
+            this.$refs.taskSelectOverlay.closeTaskSelect(false);
+        },
+        onOpenActionPanel () {
+            this.$refs.actionPanel.openActionPanel();
+        },
+        onCloseActionPanel () {
+            this.$refs.actionPanel.closeActionPanel();
+        },
+        onToggleTaskSelect (taskIndex) {
+            if (!this.selectedTasks.lists[this.currentListIndex]) {
+                this.selectedTasks.lists[this.currentListIndex] = {
+                    'lists': {},
+                    'tasks': []
+                }
+            }
+
+            if (this.selectedTasks.lists[this.currentListIndex]['tasks'].includes(taskIndex)) {
+                this.selectedTasks.amount -= 1;
+                var index = this.selectedTasks.lists[this.currentListIndex]['tasks'].indexOf(taskIndex);
+                if (index > -1) {
+                    this.selectedTasks.lists[this.currentListIndex]['tasks'].splice(index, 1);
+                }
+            } else {
+                this.selectedTasks.amount += 1;
+                this.selectedTasks.lists[this.currentListIndex]['tasks'].push(taskIndex);
+            }
+
+            if (this.selectedTasks.amount > 0) {
+                this.onOpenTaskSelect();
+                this.onOpenActionPanel();
+            } else {
+                this.onCloseTaskSelect();
+                this.onCloseActionPanel();
+            }
+        },
+        unselectAllTasks () {
+            this.$refs.mainView.unselectAllTasks();
         }
     },
     template: MainTemplate

@@ -19,6 +19,18 @@ const MainView = {
         },
         setMenuState (isOpen) {
             this.isMenuOpen = isOpen;
+        },
+        onToggleTaskSelect (taskIndex) {
+            this.$emit("toggle-task-select", taskIndex);
+        },
+        unselectAllTasks () {
+            this.$children.forEach(component => {
+                if (component.$options._componentTag == "task") {
+                    if (component.isSelected) {
+                        component.toggleTaskSelect();
+                    }
+                }
+            });
         }
     },
     template: MainViewTemplate,

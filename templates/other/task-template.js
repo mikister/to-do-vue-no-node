@@ -1,5 +1,5 @@
 const TaskTemplate = `
-<div class="task">
+<div :class="{ 'task': true, 'task--selected': isSelected }" @click="toggleTaskSelect">
 
     <span 
         :class="['task__checkbox task--importance-' + importance]"

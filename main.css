@@ -250,6 +250,10 @@ body {
         flex-shrink: 0;
     }
 
+    .task--selected {
+        background-color: #E8E8E8 !important;
+    }
+
     .task--completed {
         --color-text: var(--color-inactive) !important;
         text-decoration: line-through;

@@ -7,6 +7,13 @@ const ActionPanel = {
         }
     },
     methods: {
+        openActionPanel () {
+            this.isActive = true;
+        },
+        closeActionPanel () {
+            this.isActive = false;
+        },
+
         completeSelectedTask () {
             this.$emit("complete-selected-tasks");
         },

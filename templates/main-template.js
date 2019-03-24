@@ -11,13 +11,19 @@ const MainTemplate = `
 
     <search-overlay ref="searchOverlay"></search-overlay>
 
-    <task-select-overlay ref="taskSelectOverlay"></task-select-overlay>
+    <task-select-overlay
+        ref="taskSelectOverlay"
+        @close-task-select="onCloseTaskSelect"
+    ></task-select-overlay>
 
 
     <action-panel ref="actionPanel" ></action-panel>
 
 
-    <main-view ref="mainView"></main-view>
+    <main-view
+        ref="mainView"
+        @toggle-task-select="onToggleTaskSelect"
+    ></main-view>
 
     <settings-overlay ref="settingsOverlay"></settings-overlay>
 

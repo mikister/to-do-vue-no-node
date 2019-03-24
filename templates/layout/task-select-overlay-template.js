@@ -6,8 +6,10 @@ const TaskSelectOverlayTemplate = `
 
 <i
     class="action_button fas fa-arrow-left"
-    @click="isActive=false"
+    @click="closeTaskSelect"
 ></i>
+
+<h2>{{ selectedTasksNum }}</h2>
 
 </div>`
 

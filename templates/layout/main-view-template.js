@@ -7,10 +7,12 @@ const MainViewTemplate = `
         <task 
             v-for="(taskItem, index) in tasks" 
             :key        = "index"
+            :index        = "index"
             :name       = "taskItem.name" 
             :isChecked  = "taskItem.isChecked" 
             :importance = "taskItem.importance" 
-            :dueDate    = "taskItem.dueDate" 
+            :dueDate    = "taskItem.dueDate"
+            @toggle-task-select="onToggleTaskSelect"
         ></task>
     </div>
 
