@@ -50,6 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 
     overflow-y: scroll;
 }
@@ -64,7 +65,7 @@ body {
         flex-grow: 1;
         flex-shrink: 0;
         
-        width: 95%;
+        width: 100%;
         max-width: 1000px;
     }
 

@@ -3,7 +3,7 @@ const MainViewTemplate = `
 
     <h1 id="main_view__title">{{ currListName }}</h1>
 
-    <div id="main_view__tasks-container">
+    <div id="main_view__task_container">
         <task 
             v-for="(taskItem, index) in tasks" 
             :key        = "index"
