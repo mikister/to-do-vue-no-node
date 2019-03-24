@@ -17,6 +17,10 @@ const Task = {
         toggleTaskSelect () {
             this.isSelected = !this.isSelected;
             this.$emit("toggle-task-select", this.$props.index);
+        },
+        changeCompletedState (event) {
+            this.isChecked = !this.isChecked
+            event.stopPropagation();
         }
     },
     template: TaskTemplate,
