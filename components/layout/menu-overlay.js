@@ -18,6 +18,7 @@ const MenuOverlay = {
         },
         changeList (value) {
             this.$emit('change-list', value);
+            this.closeMenu();
         },
         openMenu () {
             this.isActive = true;
