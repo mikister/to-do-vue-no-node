@@ -124,7 +124,8 @@ new Vue({
         saveListsData () {},
         displayTasks (listIndex) {
             this.currentListIndex = listIndex;
-            this.$refs.mainView.displayTasks( this.lists[listIndex] );
+            this.$refs.mainView.displayTasks(this.lists[listIndex]);
+            this.$refs.navPanel.updateTitle(this.lists[listIndex].name);
         },
         displayLists () {
             this.$refs.menuOverlay.displayLists(this.lists);
