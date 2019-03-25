@@ -209,6 +209,7 @@ body {
     }
 
 .action_button {
+    padding: 5px;
     color: var(--color-font);
 }
 
@@ -223,9 +224,10 @@ body {
 
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     width: 100%;
-    padding: 10px 25px;
+    padding: 0 25px;
     /* margin: 2px 0; */
 
     border-bottom: 1px solid #DFDFDF;
@@ -243,7 +245,7 @@ body {
 
     .task__checkbox {
         color: var(--color-checkbox);
-        margin-right: 10px;
+        padding: 10px;
     }
 
     .task__name {
