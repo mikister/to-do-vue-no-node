@@ -31,6 +31,7 @@ new Vue({
             aspectRatio: 1,
             width: 0,
             height: 0,
+            theme: "",
             selectedTasks: {
                 amount: 0,
                 lists: {}
@@ -193,6 +194,13 @@ new Vue({
         },
         unselectAllTasks () {
             this.$refs.mainView.unselectAllTasks();
+        },
+        onToggleNightMode (NigthModeOn) {
+            if (NigthModeOn) {
+                this.theme = "dark_mode";
+            } else {
+                this.theme = "";
+            }
         }
     },
     template: MainTemplate

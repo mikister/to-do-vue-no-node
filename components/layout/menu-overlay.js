@@ -8,6 +8,7 @@ const MenuOverlay = {
     },
     data: function () {
         return {
+            nightMode: false,
             isActive: false,
             lists: []
         }
@@ -30,6 +31,10 @@ const MenuOverlay = {
         openSettings (event) {
             this.isActive = false;
             this.$emit('open-settings');
+        },
+        toggleNightMode (event) {
+            this.nightMode = !this.nightMode;
+            this.$emit("toggle-night-mode", this.nightMode);
         }
     },
     template: MenuOverlayTemplate

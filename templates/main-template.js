@@ -1,7 +1,7 @@
 // Note that these are backticks.
 
 const MainTemplate = `
-<div id="app">
+<div id="app" :class="theme">
 
     <nav-panel 
         ref="navPanel" 
@@ -32,6 +32,7 @@ const MainTemplate = `
         @open-settings="onOpenSettings"
         @close-menu="onCloseMenu"
         @change-list="displayTasks"
+        @toggle-night-mode="onToggleNightMode"
     ></menu-overlay>
 
 </div>

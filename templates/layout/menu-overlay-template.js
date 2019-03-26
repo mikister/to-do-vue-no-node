@@ -39,6 +39,13 @@ const MenuOverlayTemplate = `
 
     <hr class="list_item__separator">
 
+    <div class="list_item" @click="toggleNightMode">
+        <i v-if="nightMode" class="action_button fas fa-sun"></i>
+        <i v-else class="action_button fas fa-moon"></i>
+        <span v-if="nightMode" class="list_item__name">Day Mode</span>
+        <span v-else class="list_item__name">Night Mode</span>
+    </div>
+
     <div class="list_item" @click="openSettings">
         <i class="action_button fas fa-cog"></i>
         <span class="list_item__name">Settings</span>
