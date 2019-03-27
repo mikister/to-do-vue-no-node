@@ -26,7 +26,7 @@ body {
     --color-background: #F5F5F5;
     --color-font: #000000;
     --color-inactive: #AAAAAA;
-    --color-highlight: rgba(240, 240, 240, 0.5);
+    --color-highlight: rgba(220, 220, 220, 0.5);
 
     --color-task-importance-1: #ad343e;
     --color-task-importance-2: #f2af29;
