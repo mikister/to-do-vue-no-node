@@ -20,7 +20,7 @@ const MainView = {
         setMenuState (isOpen) {
             this.isMenuOpen = isOpen;
         },
-        onToggleTaskSelect (taskIndex) {
+        onTaskToggleSelect (taskIndex) {
             this.$emit("task-toggle-select", taskIndex);
         },
         onTaskToggleCompleted (taskIndex) {
