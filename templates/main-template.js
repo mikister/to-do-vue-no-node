@@ -17,7 +17,14 @@ const MainTemplate = `
     ></task-select-overlay>
 
 
-    <action-panel ref="actionPanel" ></action-panel>
+    <action-panel
+        ref="actionPanel"
+        @action-panel-tasks-complete          = "onSelectedTaskComplete"
+        @action-panel-tasks-change-due-date   = "onSelectedTaskChangeDueDate"
+        @action-panel-tasks-change-importance = "onSelectedTaskChangeImportance"
+        @action-panel-tasks-move              = "onSelectedTaskMove"
+        @action-panel-tasks-delete            = "onSelectedTaskDelete"
+    ></action-panel>
 
 
     <main-view

@@ -165,6 +165,7 @@ new Vue({
         onCloseActionPanel () {
             this.$refs.actionPanel.closeActionPanel();
         },
+
         onTaskToggleSelect (taskIndex) {
             if (!this.selectedTasks.lists[this.currentListIndex]) {
                 this.selectedTasks.lists[this.currentListIndex] = {
@@ -207,6 +208,33 @@ new Vue({
         onTaskDelete (taskIndex) {
 
         },
+
+        onSelectedTaskComplete () {
+            this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
+                this.onTaskToggleCompleted(taskIndex);
+            });
+        },
+        onSelectedTaskChangeDueDate (newDueDate) {
+            this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
+                this.onTaskChangeDueDate(taskIndex, newDueDate);
+            });
+        },
+        onSelectedTaskChangeImportance (newImportance) {
+            this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
+                this.onTaskChangeImportance(taskIndex, newImportance);
+            });
+        },
+        onSelectedTaskMove (newList) {
+            this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
+                this.onTaskMove(taskIndex, newList);
+            });
+        },
+        onSelectedTaskDelete () {
+            this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
+                this.onTaskDelete(taskIndex);
+            });
+        },
+
         unselectAllTasks () {
             this.$refs.mainView.unselectAllTasks();
         },

@@ -3,7 +3,10 @@ import { ActionPanelTemplate } from '../../templates/layout/action-panel-templat
 const ActionPanel = {
     data: function () {
         return {
-            isActive: false
+            isActive: false,
+            selectedDueDate: "",
+            selectedImportance: 2,
+            moveTarget: 1
         }
     },
     methods: {
@@ -14,17 +17,20 @@ const ActionPanel = {
             this.isActive = false;
         },
 
-        completeSelectedTask () {
-            this.$emit("complete-selected-tasks");
+        selectedTaskComplete () {
+            this.$emit("action-panel-tasks-complete");
         },
-        scheduleSelectedTask () {
-            this.$emit("schedule-selected-tasks");
+        selectedTaskChangeDueDate () {
+            this.$emit("action-panel-tasks-change-due-date", this.selectedDueDate);
         },
-        moveSelectedTask () {
-            this.$emit("move-selected-tasks");
+        selectedTaskChangeImportance () {
+            this.$emit("action-panel-tasks-change-importance", this.selectedImportance);
         },
-        changeImportanceOfSelectedTask () {
-            this.$emit("change-importance-selected-tasks");
+        selectedTaskMove () {
+            this.$emit("action-panel-tasks-move", this.moveTarget);
+        },
+        selectedTaskDelete () {
+            this.$emit("action-panel-tasks-delete");
         }
     },
     template: ActionPanelTemplate
