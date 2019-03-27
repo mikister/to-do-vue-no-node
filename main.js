@@ -193,46 +193,67 @@ new Vue({
                 this.onCloseActionPanel();
             }
         },
-        onTaskToggleCompleted (taskIndex) {
-
+        onTaskToggleCompleted (taskIndex, redrawTasks = true) {
+            this.lists[this.currentListIndex].tasks[taskIndex].isChecked = !this.lists[this.currentListIndex].tasks[taskIndex].isChecked;
+            if (redrawTasks)
+                this.displayTasks(this.currentListIndex);
         },
-        onTaskChangeDueDate (taskIndex, newDueDate) {
-
+        onTaskChangeDueDate (taskIndex, newDueDate, redrawTasks = true) {
+            this.lists[this.currentListIndex].tasks[taskIndex].dueDate = newDueDate;
+            if (redrawTasks)
+                this.displayTasks(this.currentListIndex);
         },
-        onTaskChangeImportance (taskIndex, newImportance) {
-
+        onTaskChangeImportance (taskIndex, newImportance, redrawTasks = true) {
+            this.lists[this.currentListIndex].tasks[taskIndex].importance = newImportance;
+            if (redrawTasks)
+                this.displayTasks(this.currentListIndex);
         },
-        onTaskMove (taskIndex, newList) {
-
+        onTaskMove (taskIndex, newList, redrawTasks = true) {
+            this.lists[newList].tasks.push(this.lists[this.currentListIndex].tasks[taskIndex]);
+            this.onTaskDelete(taskIndex, false);
+            if (redrawTasks)
+                this.displayTasks(this.currentListIndex);
         },
-        onTaskDelete (taskIndex) {
-
+        onTaskDelete (taskIndex, redrawTasks = true) {
+            this.lists[this.currentListIndex].tasks.splice(taskIndex, 1);
+            if (redrawTasks)
+                this.displayTasks(this.currentListIndex);
         },
 
         onSelectedTaskComplete () {
             this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
-                this.onTaskToggleCompleted(taskIndex);
+                this.onTaskToggleCompleted(taskIndex, false);
             });
+            this.unselectAllTasks();
+            this.displayTasks(this.currentListIndex);
         },
         onSelectedTaskChangeDueDate (newDueDate) {
             this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
-                this.onTaskChangeDueDate(taskIndex, newDueDate);
+                this.onTaskChangeDueDate(taskIndex, newDueDate, false);
             });
+            this.unselectAllTasks();
+            this.displayTasks(this.currentListIndex);
         },
         onSelectedTaskChangeImportance (newImportance) {
             this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
-                this.onTaskChangeImportance(taskIndex, newImportance);
+                this.onTaskChangeImportance(taskIndex, newImportance, false);
             });
+            this.unselectAllTasks();
+            this.displayTasks(this.currentListIndex);
         },
         onSelectedTaskMove (newList) {
             this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
-                this.onTaskMove(taskIndex, newList);
+                this.onTaskMove(taskIndex, newList, false);
             });
+            this.unselectAllTasks();
+            this.displayTasks(this.currentListIndex);
         },
         onSelectedTaskDelete () {
             this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
-                this.onTaskDelete(taskIndex);
+                this.onTaskDelete(taskIndex, false);
             });
+            this.unselectAllTasks();
+            this.displayTasks(this.currentListIndex);
         },
 
         unselectAllTasks () {

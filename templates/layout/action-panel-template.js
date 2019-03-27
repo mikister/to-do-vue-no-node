@@ -8,9 +8,9 @@ const ActionPanelTemplate = `
 
     <i class="action_button fas fa-calendar" @click="selectedTaskChangeDueDate"></i>
 
-    <i class="action_button fas fa-list" @click="selectedTaskChangeImportance"></i>
+    <i class="action_button fas fa-list" @click="selectedTaskMove"></i>
 
-    <i class="action_button fas fa-bell" @click="selectedTaskMove"></i>
+    <i class="action_button fas fa-bell" @click="selectedTaskChangeImportance"></i>
 
     <i class="action_button fas fa-trash" @click="selectedTaskDelete"></i>
 
