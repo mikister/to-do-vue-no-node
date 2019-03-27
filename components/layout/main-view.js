@@ -21,7 +21,22 @@ const MainView = {
             this.isMenuOpen = isOpen;
         },
         onToggleTaskSelect (taskIndex) {
-            this.$emit("toggle-task-select", taskIndex);
+            this.$emit("task-toggle-select", taskIndex);
+        },
+        onTaskToggleCompleted (taskIndex) {
+            this.$emit("task-toggle-completed", taskIndex);
+        },
+        onTaskChangeDueDate (taskIndex, newDueDate) {
+            this.$emit("task-change-due-date", taskIndex, newDueDate);
+        },
+        onTaskChangeImportance (taskIndex, newImportance) {
+            this.$emit("task-change-importance", taskIndex, newImportance);
+        },
+        onTaskMove (taskIndex, newList) {
+            this.$emit("task-move", taskIndex, newList);
+        },
+        onTaskDelete (taskIndex) {
+            this.$emit("task-delete", taskIndex);
         },
         unselectAllTasks () {
             this.$children.forEach(component => {

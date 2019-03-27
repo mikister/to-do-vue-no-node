@@ -22,7 +22,12 @@ const MainTemplate = `
 
     <main-view
         ref="mainView"
-        @toggle-task-select="onToggleTaskSelect"
+        @task-toggle-select     = "onTaskToggleSelect"
+        @task-toggle-completed  = "onTaskToggleCompleted"
+        @task-change-due-date   = "onTaskChangeDueDate"
+        @task-change-importance = "onTaskChangeImportance"
+        @task-move              = "onTaskMove"
+        @task-delete            = "onTaskDelete"
     ></main-view>
 
     <settings-overlay ref="settingsOverlay"></settings-overlay>
