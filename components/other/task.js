@@ -27,15 +27,15 @@ const Task = {
             this.dueDate = newDueDate;
             this.$emit("task-change-due-date", this.$props.index, newDueDate);
         },
-        moveTasktoList (newList) {
-            this.$emit("move-task", this.$props.index, newList);
-        },
         changeImportance (newImportance) {
             this.importance = newImportance;
             this.$emit("task-change-importance", this.$props.index, newImportance);
         },
+        moveTasktoList (newList) {
+            this.$emit("task-move", this.$props.index, newList);
+        },
         deleteTask () {
-            this.$emit("task-delete", this.$props.index, newDueDate);
+            this.$emit("task-delete", this.$props.index);
         },
     },
     template: TaskTemplate,
