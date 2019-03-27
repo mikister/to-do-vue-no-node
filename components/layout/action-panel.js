@@ -1,11 +1,15 @@
 import { ActionPanelTemplate } from '../../templates/layout/action-panel-template.js'
 
+import { ImportancePicker } from '../other/importance-picker.js'
+
 const ActionPanel = {
+    components: {
+        'importance-picker': ImportancePicker
+    },
     data: function () {
         return {
             isActive: false,
             selectedDueDate: "",
-            selectedImportance: 2,
             moveTarget: 1
         }
     },
@@ -17,14 +21,18 @@ const ActionPanel = {
             this.isActive = false;
         },
 
+        openImportancePicker () {
+            this.$refs.importancePicker.isActive = true;
+        },
+
         selectedTaskComplete () {
             this.$emit("action-panel-tasks-complete");
         },
         selectedTaskChangeDueDate () {
             this.$emit("action-panel-tasks-change-due-date", this.selectedDueDate);
         },
-        selectedTaskChangeImportance () {
-            this.$emit("action-panel-tasks-change-importance", this.selectedImportance);
+        selectedTaskChangeImportance (selectedImportance) {
+            this.$emit("action-panel-tasks-change-importance", selectedImportance);
         },
         selectedTaskMove () {
             this.$emit("action-panel-tasks-move", this.moveTarget);
