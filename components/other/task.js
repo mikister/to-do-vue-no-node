@@ -16,12 +16,27 @@ const Task = {
     methods: {
         toggleTaskSelect () {
             this.isSelected = !this.isSelected;
-            this.$emit("toggle-task-select", this.$props.index);
+            this.$emit("task-toggle-select", this.$props.index);
         },
-        changeCompletedState (event) {
+        toggleCompletedState (event) {
             this.isChecked = !this.isChecked
             event.stopPropagation();
-        }
+            this.$emit("task-toggle-completed", this.$props.index);
+        },
+        changeDueDate (newDueDate) {
+            this.dueDate = newDueDate;
+            this.$emit("task-change-due-date", this.$props.index, newDueDate);
+        },
+        moveTasktoList (newList) {
+            this.$emit("move-task", this.$props.index, newList);
+        },
+        changeImportance (newImportance) {
+            this.importance = newImportance;
+            this.$emit("task-change-importance", this.$props.index, newImportance);
+        },
+        deleteTask () {
+            this.$emit("task-delete", this.$props.index, newDueDate);
+        },
     },
     template: TaskTemplate,
 }

@@ -3,7 +3,7 @@ const TaskTemplate = `
 
     <span 
         :class="['task__checkbox task--importance-' + importance]"
-        v-on:click="changeCompletedState"
+        v-on:click="toggleCompletedState"
     >
         <i v-if="isChecked" class="fas fa-check-square"></i>
         <i v-else class="far fa-square"></i>
