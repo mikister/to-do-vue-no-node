@@ -413,8 +413,11 @@ body {
 
     #action_panel {
         grid-area: 3 / 1 / -1 / 2;
-        flex-direction: column;
     }
+
+        #action_panel__button_container {
+            flex-direction: column;
+        }
 
     #search_overlay {
         grid-area: 1 / 2 / 1 / -1;
