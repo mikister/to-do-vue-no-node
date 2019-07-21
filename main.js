@@ -31,7 +31,7 @@ new Vue({
             aspectRatio: 1,
             width: 0,
             height: 0,
-            theme: "",
+            theme: "dark_mode",
             selectedTasks: {
                 amount: 0,
                 lists: {}
