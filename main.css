@@ -42,6 +42,7 @@ body {
 
     font-size: 20px;
     background-color: var(--color-background);
+    color: var(--color-font);
 }
 
     #app.dark_mode {
@@ -395,8 +396,14 @@ body {
         padding: 0 5%;
     }
 
-    .date_picker_month {
+    .date_picker__header {
+        display: flex;
+        padding: 0.5em 5% 0.5em 3%;
+    }
+
+    .date_picker__month {
         padding: 1em;
+        flex-grow: 1;
     }
 
     .date_picker__day {

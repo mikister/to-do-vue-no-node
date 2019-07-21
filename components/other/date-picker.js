@@ -4,34 +4,44 @@ const DatePicker = {
     mounted () {
         var currDate = new Date();
         this.currYear = currDate.getFullYear();
+        this.selectedYear = this.currYear;
+        
         this.currMonth = currDate.getMonth() + 1;
-        this.currMonthName = currDate.toLocaleString('default', { month: 'long' });
-        this.currMonthDays = this.daysInMonth(this.currMonth, this.currYear);
+        this.selectedMonth = this.currMonth;
+        
+        this.selectedMonthName = currDate.toLocaleString('default', { month: 'long' });
+        this.currMonthDays = this.daysInMonth(this.selectedYear, this.selectedMonth);
     },
     data: function () {
         return {
             isActive: false,
             currYear: 0,
             currMonth: 0,
-            currMonthName: "",
+            selectedMonthName: "",
             currMonthDays: 0,
+            selectedYear: 0,
+            selectedMonth: 0,
             weekdayNameOrder: ["M", "T", "W", "T", "F", "S", "S"]
         }
     },
     methods: {
-        daysInMonth (iMonth, iYear) {
-            return 32 - new Date(iYear, iMonth, 32).getDate();
+        daysInMonth (year, month) {
+            return 32 - new Date(year, month-1, 32).getDate();
         },
-        onSelectedDueDate (selectedDueDate) {
-            if (selectedDueDate !== "")
+        getMonthName (year, month) {
+            var selectedDate = new Date(year, month-1, 1);
+            return selectedDate.toLocaleString('default', { month: 'long' });
+        },
+        onSelectedDueDate (selectedDay) {
+            if (selectedDay !== "")
             {
-                var dateString = selectedDueDate+1 + "." + this.currMonth + "." + this.currYear;
+                var dateString = (selectedDay + 1) + "." + this.selectedMonth + "." + this.selectedYear;
                 this.$emit("date-picked", dateString);
                 this.isActive = false;
             }
         },
         getDaysArray () {
-            var firstInCurrMonth = new Date(this.currYear + "-" + this.currMonth + "-1");
+            var firstInCurrMonth = new Date(this.selectedYear, this.selectedMonth-1, 1);
             var emptyFields = 0;
 
             switch(firstInCurrMonth.toLocaleDateString('en-US',{weekday: 'long'}))
@@ -39,7 +49,7 @@ const DatePicker = {
                 case "Tuesday":
                     emptyFields = 1;
                     break;
-                case "Wedneday":
+                case "Wednesday":
                     emptyFields = 2;
                     break;
                 case "Thursday":
@@ -62,6 +72,37 @@ const DatePicker = {
             return Array(emptyFields).fill("").concat(
                 Array.from(Array(this.currMonthDays).keys())
                 );
+        },
+        goToPrevMonth () {
+            this.selectedMonth -= 1;
+            if (this.selectedMonth === 0) {
+                this.selectedMonth = 12;
+                this.selectedYear -= 1;
+            }
+            this.currMonthDays = this.daysInMonth(this.selectedYear, this.selectedMonth);
+            this.selectedMonthName = this.getMonthName(this.selectedYear, this.selectedMonth);
+        },
+        goToNextMonth () {
+            this.selectedMonth += 1;
+            if (this.selectedMonth === 13) {
+                this.selectedMonth = 0;
+                this.selectedYear += 1;
+            }
+            this.currMonthDays = this.daysInMonth(this.selectedYear, this.selectedMonth);
+            this.selectedMonthName = this.getMonthName(this.selectedYear, this.selectedMonth);
+        },
+        goToCurrDate () {
+            this.selectedYear = this.currYear;
+            this.selectedMonth = this.currMonth;
+    
+            this.currMonthDays = this.daysInMonth(this.selectedYear, this.selectedMonth);
+            this.selectedMonthName = this.getMonthName(this.selectedYear, this.selectedMonth);
+        },
+        getMonthText () {
+            if (this.selectedYear === this.currYear)
+                return this.selectedMonthName;
+            else
+                return this.selectedMonthName + ", " + this.selectedYear;
         }
     },
     template: DatePickerTemplate

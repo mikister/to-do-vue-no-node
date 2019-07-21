@@ -5,7 +5,24 @@ const DatePickerTemplate = `
 >
 
     <div class="picker date_picker" onclick="event.stopPropagation()">
-        <span class="date_picker_month">{{ currMonthName }}</span>
+        <div class="date_picker__header">
+            <span class="date_picker__month">{{ getMonthText() }}</span>
+            <i 
+                class="action_button fas fa-caret-left" 
+                @click="goToPrevMonth"
+                title="Previous Month"
+            ></i>
+            <i 
+                class="action_button fas fa-square" 
+                @click="goToCurrDate"
+                title="Today"
+            ></i>
+            <i 
+                class="action_button fas fa-caret-right" 
+                @click="goToNextMonth"
+                title="Next Month"
+            ></i>
+        </div>
 
         <div class="date_picker__dates">
 
