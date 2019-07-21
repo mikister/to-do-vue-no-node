@@ -17,7 +17,7 @@ const DatePickerTemplate = `
             <span
                 v-for="index in getDaysArray()"
                 class="date_picker__day"
-                @click="onSelectedDueDate(index + 1)"
+                @click="onSelectedDueDate(index)"
             >{{ index === "" ? "" : index + 1 }}</span>
         </div>
     </div>
