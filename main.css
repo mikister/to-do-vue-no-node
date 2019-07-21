@@ -296,9 +296,7 @@ body {
     flex-direction: row;
     align-items: center;
 
-    width: 100%;
-    padding: 0 25px;
-    /* margin: 2px 0; */
+    padding-right: 25px;
 
     border-bottom: 1px solid var(--color-inactive);
 }
@@ -315,12 +313,11 @@ body {
 
     .task__checkbox {
         color: var(--color-checkbox);
-        padding: 10px;
+        padding: 10px 15px;
     }
 
     .task__name {
         flex-grow: 1;
-        flex-shrink: 0;
     }
 
     .task--selected {
