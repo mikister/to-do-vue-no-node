@@ -4,17 +4,11 @@ const ActionPanelTemplate = `
     :class="{ 'nav_overlay--hidden': !isActive }"
 >
 
-
-    <importance-picker
-        ref="importancePicker"
-        @importance-picked="selectedTaskChangeImportance"    
-    ></importance-picker>
-
     <div id="action_panel__button_container">
 
         <i class="action_button fas fa-check" @click="selectedTaskComplete"></i>
 
-        <i class="action_button fas fa-calendar" @click="selectedTaskChangeDueDate"></i>
+        <i class="action_button fas fa-calendar" @click="openDatePicker"></i>
 
         <i class="action_button fas fa-list" @click="selectedTaskMove"></i>
 
@@ -23,6 +17,17 @@ const ActionPanelTemplate = `
         <i class="action_button fas fa-trash" @click="selectedTaskDelete"></i>
 
     </div>
+
+
+    <importance-picker
+        ref="importancePicker"
+        @importance-picked="selectedTaskChangeImportance"    
+    ></importance-picker>
+
+    <date-picker
+        ref="datePicker"
+        @date-picked="selectedTaskChangeDueDate"    
+    ></date-picker>
 
 </div>`
 
