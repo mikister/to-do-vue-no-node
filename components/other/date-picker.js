@@ -59,7 +59,7 @@ const DatePicker = {
             // First Array constructor generates an array of size "emptyFields" with empty elements
             // Second Array constructor converts the iterator we get from third into an array
             // Thirs Array constructor generates an array iterator of integers going from 0 to "this.currMonthDays" - 1
-            return Array(2).fill("").concat(
+            return Array(emptyFields).fill("").concat(
                 Array.from(Array(this.currMonthDays).keys())
                 );
         }
