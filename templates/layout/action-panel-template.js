@@ -10,7 +10,7 @@ const ActionPanelTemplate = `
 
         <i class="action_button fas fa-calendar" @click="openDatePicker"></i>
 
-        <i class="action_button fas fa-list" @click="selectedTaskMove"></i>
+        <i class="action_button fas fa-list" @click="openListPicker"></i>
 
         <i class="action_button fas fa-bell" @click="openImportancePicker"></i>
 
@@ -28,6 +28,12 @@ const ActionPanelTemplate = `
         ref="datePicker"
         @date-picked="selectedTaskChangeDueDate"    
     ></date-picker>
+
+    <list-picker
+        ref="listPicker"
+        @list-picked="selectedTaskMove"
+        :targetLists="targetLists"
+    ></list-picker>
 
 </div>`
 

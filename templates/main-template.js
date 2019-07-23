@@ -24,6 +24,7 @@ const MainTemplate = `
         @action-panel-tasks-change-importance = "onSelectedTaskChangeImportance"
         @action-panel-tasks-move              = "onSelectedTaskMove"
         @action-panel-tasks-delete            = "onSelectedTaskDelete"
+        @action-panel-open-list-picker        = "onOpenActionPanelListPicker"
     ></action-panel>
 
 

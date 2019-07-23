@@ -2,17 +2,20 @@ import { ActionPanelTemplate } from '../../templates/layout/action-panel-templat
 
 import { ImportancePicker } from '../other/importance-picker.js'
 import { DatePicker } from '../other/date-picker.js'
+import { ListPicker } from '../other/list-picker.js'
 
 const ActionPanel = {
     components: {
         'importance-picker': ImportancePicker,
-        'date-picker': DatePicker
+        'date-picker': DatePicker,
+        'list-picker': ListPicker,
     },
     data: function () {
         return {
             isActive: false,
             selectedDueDate: "",
-            moveTarget: 1
+            targetLists: [],
+            mockLists: ["a", "b", "c"],
         }
     },
     methods: {
@@ -29,6 +32,9 @@ const ActionPanel = {
         openDatePicker () {
             this.$refs.datePicker.isActive = true;
         },
+        openListPicker () {
+            this.$emit("action-panel-open-list-picker");
+        },
 
         selectedTaskComplete () {
             this.$emit("action-panel-tasks-complete");
@@ -39,8 +45,8 @@ const ActionPanel = {
         selectedTaskChangeImportance (selectedImportance) {
             this.$emit("action-panel-tasks-change-importance", selectedImportance);
         },
-        selectedTaskMove () {
-            this.$emit("action-panel-tasks-move", this.moveTarget);
+        selectedTaskMove (listIndex) {
+            this.$emit("action-panel-tasks-move", listIndex);
         },
         selectedTaskDelete () {
             this.$emit("action-panel-tasks-delete");

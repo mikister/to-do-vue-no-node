@@ -165,6 +165,10 @@ new Vue({
         onCloseActionPanel () {
             this.$refs.actionPanel.closeActionPanel();
         },
+        onOpenActionPanelListPicker () {
+            this.$refs.actionPanel.targetLists = this.lists;
+            this.$refs.actionPanel.$refs.listPicker.isActive = true;
+        },
 
         onTaskToggleSelect (taskIndex) {
             if (!this.selectedTasks.lists[this.currentListIndex]) {
@@ -242,6 +246,7 @@ new Vue({
             this.displayTasks(this.currentListIndex);
         },
         onSelectedTaskMove (newList) {
+            this.selectedTasks.lists[this.currentListIndex]['tasks'].sort().reverse();
             this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
                 this.onTaskMove(taskIndex, newList, false);
             });
@@ -249,6 +254,7 @@ new Vue({
             this.displayTasks(this.currentListIndex);
         },
         onSelectedTaskDelete () {
+            this.selectedTasks.lists[this.currentListIndex]['tasks'].sort().reverse();
             this.selectedTasks.lists[this.currentListIndex]['tasks'].forEach(taskIndex => {
                 this.onTaskDelete(taskIndex, false);
             });
