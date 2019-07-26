@@ -9,7 +9,11 @@ const MainTemplate = `
         @open-search="onOpenSearch"
     ></nav-panel>
 
-    <search-overlay ref="searchOverlay"></search-overlay>
+    <search-overlay
+        ref="searchOverlay"
+        @search-pattern-changed="search"
+        @close-search="onCloseSearch"
+    ></search-overlay>
 
     <task-select-overlay
         ref="taskSelectOverlay"

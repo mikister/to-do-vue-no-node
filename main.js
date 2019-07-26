@@ -109,7 +109,12 @@ new Vue({
                         },
                     ]
                 }
-            ]
+            ],
+            taskViews: {
+                today: [],
+                nextSevenDays: [],
+                search: [],
+            },
         }
     },
     mounted () {
@@ -127,6 +132,16 @@ new Vue({
             this.currentListIndex = listIndex;
             this.$refs.mainView.displayTasks(this.lists[listIndex]);
             this.$refs.navPanel.updateTitle(this.lists[listIndex].name);
+        },
+        displayView (taskView, name="") {
+            var pseudoList = {
+                name: name,
+                colorCode: "#E5D291",
+                tasks: taskView,
+            };
+
+            this.$refs.mainView.displayTasks(pseudoList);
+            this.$refs.navPanel.updateTitle(pseudoList);
         },
         displayLists () {
             this.$refs.menuOverlay.displayLists(this.lists);
@@ -151,6 +166,10 @@ new Vue({
         },
         onOpenSearch () {
             this.$refs.searchOverlay.openSearch();
+            this.basicSearch("");
+        },
+        onCloseSearch () {
+            this.displayTasks(this.currentListIndex);
         },
         onOpenTaskSelect () {
             this.$refs.taskSelectOverlay.openTaskSelect(this.selectedTasks.amount);
@@ -271,7 +290,38 @@ new Vue({
             } else {
                 this.theme = "";
             }
-        }
+        },
+        search (pattern, fuzzy=false) {
+            this.taskViews.search = [];
+
+            if (pattern !== "")
+            {
+                if (fuzzy)
+                    this.fuzzySearch(pattern);
+                else
+                    this.basicSearch(pattern);
+            }
+
+            this.displayView(this.taskViews.search);
+        },
+        fuzzySearch (pattern) {
+            console.log(pattern);
+        },
+        basicSearch (pattern) {
+            this.lists.forEach(
+                list => { list.tasks.forEach(
+                    taskItem => {
+                        if (taskItem.name.includes(pattern))
+                        {
+                            var pseudoTask = taskItem;
+                            pseudoTask.parentListName = list.name;
+                            pseudoTask.parentListColorCode = list.colorCode;
+                            this.taskViews.search.push(pseudoTask);
+                        }
+                    }
+                )}
+            );
+        },
     },
     template: MainTemplate
 })
