@@ -40,6 +40,8 @@ const MainTemplate = `
         @task-change-importance = "onTaskChangeImportance"
         @task-move              = "onTaskMove"
         @task-delete            = "onTaskDelete"
+        @add-task               = "onAddNewTask"
+        @confirm-new-task       = "onConfirmNewTask"
     ></main-view>
 
     <settings-overlay ref="settingsOverlay"></settings-overlay>

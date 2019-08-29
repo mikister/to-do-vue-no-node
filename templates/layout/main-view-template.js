@@ -19,6 +19,22 @@ const MainViewTemplate = `
             @task-move              = "onTaskMove"
             @task-delete            = "onTaskDelete"
         ></task>
+
+
+        <div id="new_task" v-if="addingNewTask">
+            <input
+                class="input"
+                v-model="newTaskName"
+            >
+            <i class="action_button fas fa-check" @click="confirmNewTask(true)"></i>
+            <i class="action_button fas fa-times" @click="confirmNewTask(false)"></i>
+        </div>
+
+        <span class="main_view__task_add_button" @click="$emit('add-task');">
+            <i class="fas fa-plus"></i>
+            <span>Add Task ...</span>
+        </span>
+
     </div>
 
 </main>`

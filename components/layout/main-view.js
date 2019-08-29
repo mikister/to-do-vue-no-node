@@ -9,6 +9,8 @@ const MainView = {
         return {
             currListName: "",
             isMenuOpen: false,
+            addingNewTask: false,
+            newTaskName: "",
             tasks: []
         }
     },
@@ -46,7 +48,11 @@ const MainView = {
                     }
                 }
             });
-        }
+        },
+        confirmNewTask (keepTask) {
+            this.$emit('confirm-new-task', keepTask, this.newTaskName)
+            this.addingNewTask = false;
+        },
     },
     template: MainViewTemplate,
 }

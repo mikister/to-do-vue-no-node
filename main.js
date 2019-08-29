@@ -280,6 +280,19 @@ new Vue({
             this.unselectAllTasks();
             this.displayTasks(this.currentListIndex);
         },
+        onAddNewTask () {
+            this.$refs.mainView.addingNewTask = true;
+        },
+        onConfirmNewTask (keepTask, taskName) {
+            if (keepTask) {
+                this.lists[this.currentListIndex].tasks.push({
+                    name: taskName,
+                    isChecked: false,
+                    importance: 4,
+                    dueDate: ""
+                });
+            }
+        },
 
         unselectAllTasks () {
             this.$refs.mainView.unselectAllTasks();
