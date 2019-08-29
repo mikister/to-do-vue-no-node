@@ -52,7 +52,7 @@ Data is organized around two entities:
 - **Lists**
 - **Tasks**
 
-Lists have the following structure:
+Lists have the following properties:
 
 - **sub-lists** _(other lists nested within)_
 - **tasks** _(tasks contained in a list)_
@@ -60,7 +60,7 @@ Lists have the following structure:
 - **color code**
 - **emoji** _(optional)_
 
-Tasks have the following structure:
+Tasks have the following properties:
 
 - **name**
 - **isChecked**
@@ -69,12 +69,11 @@ Tasks have the following structure:
 
 ## Vue components hiearchy
 
-- Nav-pane
-- Search Overlay
-- Task Select Overlay
+- Nav-panel
 - Action Panel
   - Date Picker
   - List Picker
+    - List Item
   - Importance Picker
 - Main-view
   - Task
@@ -82,4 +81,6 @@ Tasks have the following structure:
 - Menu Overlay
   - List Item
 - Settings Overlay
+- Search Overlay
+- Task Select Overlay
 
