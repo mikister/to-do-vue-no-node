@@ -109,6 +109,7 @@ body {
     grid-area: 1 / 1 / -1 / -1;
     color: var(--color-font);
     background-color: var(--color-background);
+    overflow-x: hidden;
     z-index: 200;
 }
 
@@ -250,6 +251,8 @@ body {
     width: 100%;
     padding: 10px 25px;
 
+    cursor: pointer;
+
     /* border-bottom: 1px solid #DFDFDF; */
 }
 
@@ -258,9 +261,9 @@ body {
         color: var(--color-accent);
     }
 
-        .list_item:hover .action_button {
-            color: var(--color-accent);
-        }
+    .list_item:hover .action_button {
+        color: var(--color-accent);
+    }
 
     .list_item__name {
         margin-left: 10px;
@@ -290,6 +293,7 @@ body {
     align-items: center;
     justify-content: center;
     color: var(--color-font);
+    cursor: pointer;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -342,6 +346,7 @@ body {
     .task__checkbox {
         color: var(--color-checkbox);
         padding: 10px 15px;
+        cursor: pointer;
     }
 
     .task__name {
