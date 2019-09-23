@@ -8,7 +8,7 @@ const MenuOverlay = {
     },
     data: function () {
         return {
-            nightMode: false,
+            nightMode: true,
             isActive: false,
             lists: []
         }
