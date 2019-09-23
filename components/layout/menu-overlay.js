@@ -29,7 +29,7 @@ const MenuOverlay = {
             this.$emit('close-menu');
         },
         openSettings (event) {
-            this.isActive = false;
+            // this.isActive = false;
             this.$emit('open-settings');
         },
         toggleNightMode (event) {
